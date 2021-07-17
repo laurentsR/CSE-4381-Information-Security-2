@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </head>
+  <body>
+    <div class="login">
+      <h1>Login</h1>
+        <form method="post">
+          <input type="text" name="username" placeholder="Username" required="required" />
+          <input type="password" name="password" placeholder="Password" required="required" />
+          <button type="submit" class="btn btn-primary btn-block btn-large">Log In</button>
+          <h1>- or -</h1>
+          <form action = "localhost:5000/createAccount">
+            <button type="button" class="btn btn-primary btn-block btn-large" onclick="location.href='createAccount/'">Create Account</button>
+          </form>
+        </form>
+    </div>
+  </body>
+</html>

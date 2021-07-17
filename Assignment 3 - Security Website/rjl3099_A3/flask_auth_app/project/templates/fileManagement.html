@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask app</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+          <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </head>
+  <body>
+    <button class="button button4" onclick="location.href='/dashboard/'">Back</button><br>
+    <div class = "menu">
+      <button class="button button3" onclick="location.href='/key/'">Generate Key</button><br>
+      <button class="button button3" onclick="location.href='/encrypt/'">Encrypt A File</button><br>
+      <button class="button button3" onclick="location.href='/decrypt/'">Decrypt A File</button><br>
+      <button class="button button3" onclick="location.href='/upload/'">Upload A File</button><br>
+      <button class="button button3" onclick="location.href='/download/'">Download A file</button><br>
+      <button class="button button3" onclick="location.href='/hashing/'">Hashing</button><br>
+    </div>
+  </body>
+</html>
